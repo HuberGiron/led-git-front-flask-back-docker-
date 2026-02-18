@@ -26,18 +26,7 @@ LED_MIN, LED_MAX = 0, 8
 
 app = Flask(__name__)
 
-# ✅ CORS configurable por env:
-#   - CORS_ORIGINS="*" (default) permite cualquier origen (útil en dev).
-#   - CORS_ORIGINS="https://tu-front.com,https://www.tu-front.com" para producción.
-
-cors_origins = (os.getenv("CORS_ORIGINS", "*") or "*").strip()
-
-if cors_origins == "*" or cors_origins == "":
-    CORS(app, resources={r"/api/*": {"origins": "*"}})
-else:
-    allowed = [o.strip() for o in cors_origins.split(",") if o.strip()]
-    CORS(app, resources={r"/api/*": {"origins": allowed}})
-
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
