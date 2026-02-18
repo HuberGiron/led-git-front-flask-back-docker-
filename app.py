@@ -31,12 +31,12 @@ app = Flask(__name__)
 
 #CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-CORS(app, resources={r"/api/*": {"origins": [
-    "https://hubergiron.github.io/led-git-front-flask-back/",
-    "http://127.0.0.1:5500",
-    "http://localhost:5500",
+# CORS(app, resources={r"/api/*": {"origins": [
+#     "https://hubergiron.github.io",
+#     "http://127.0.0.1:5500",
+#     "http://localhost:5500",
 
-]}})
+# ]}})
 
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
