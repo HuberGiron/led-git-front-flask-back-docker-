@@ -29,7 +29,7 @@ app = Flask(__name__)
 # ✅ Permite solicitudes desde tu FRONT (orígenes permitidos)
 # En local: Live Server suele ser http://127.0.0.1:5500 o http://localhost:5500
 
-#CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # CORS(app, resources={r"/api/*": {"origins": [
 #     "https://hubergiron.github.io",
